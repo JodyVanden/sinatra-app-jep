@@ -4,3 +4,5 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'pry-byebug'
 gem "mongoid", "~> 7.0"
+gem 'rack-test'
+gem 'rspec'
