@@ -13,7 +13,6 @@ RSpec.describe "POST /ratingQuestions" do
     it "returns the new document" do
       post("/ratingQuestions", {title: new_title, tag: new_tag}.to_json, {"Content/Type" => "application/json"})
       question = JSON.parse(last_response.body)
-      binding.pry
       expect(question.is_a?(Hash)).to eq(true)
       expect(question.key?("id")).to eq(true)
       expect(question["title"]).to eq(new_title)
@@ -36,7 +35,6 @@ RSpec.describe "POST /ratingQuestions" do
 
     it "shows errors that the title cannot be blank" do
       post("/ratingQuestions", {title: ""}.to_json)
-      # binding.pry
       error = JSON.parse(last_response.body)
       expect(error).to eq({"errors" => {"title" => ["can't be blank"]}})
     end
